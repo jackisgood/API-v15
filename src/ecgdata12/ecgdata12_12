@@ -8,38 +8,36 @@ import { ApiAcceptedResponse } from '@nestjs/swagger';
 const sample_rate=256;
 @Injectable()
 export class Ecgdata12Service {
-  constructor(
-    @InjectRepository(Ecgdata12)
-    private readonly ecgdata12Repository: Repository<Ecgdata12>,
-    @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
-    private readonly userService: UserService
-  ) { }
+	constructor(
+	    @InjectRepository(Ecgdata12)
+	    private readonly ecgdata12Repository: Repository<Ecgdata12>,
+	    @InjectRepository(User)
+	    private readonly userRepository: Repository<User>,
+	    private readonly userService: UserService
+  	) { }
     
-  async createEcgdata12(params): Promise<InsertResult> {
-    return await this.ecgdata12Repository.createQueryBuilder()
-      .insert()
-      .into(Ecgdata12)
-      .values(params)
-      .execute();
-  }
+	  async createEcgdata12(params): Promise<InsertResult> {
+	    return await this.ecgdata12Repository.createQueryBuilder()
+	      .insert()
+	      .into(Ecgdata12)
+	      .values(params)
+	      .execute();
+	  }
 
-  async findEcgdata12ByUser(params) {
-    // find all
-    params.from=parseInt(params.from);
-    params.to=parseInt(params.to);
-    //if (!params.from && !params.limit && !params.to)
+	  async findEcgdata12ByUser(params) {
+	    // find all
+	    params.from=parseInt(params.from);
+	    params.to=parseInt(params.to);
+	    //if (!params.from && !params.limit && !params.to)
 		
-    //  return await this.ecgdata12Repository.find({user: { userId: params.id }});
+	    //  return await this.ecgdata12Repository.find({user: { userId: params.id }});
+	    //query.where.time = Between(params.from, params.to);
+	    //   else {
+	    //   query.where.time = MoreThan(params.from);
+	    //   //query.take = params.limit || 2304;
+	    //  }
 
-      //query.where.time = Between(params.from, params.to);
-    //   else {
-    //   query.where.time = MoreThan(params.from);
-
-    //   //query.take = params.limit || 2304;
-    //  }
-
-    //if (params.to) {
+	    //if (params.to) {
 
   var total_packetaaa: any = [];   
   
