@@ -10,8 +10,10 @@ import { promises } from 'dns';
 import { threadId } from 'worker_threads';
 import { timer } from 'rxjs';
 import {fftConvolution,directConvolution} from 'ml-convolution';
+import { resample } from 'wave-resampler';
 const fetch = require("node-fetch");
 const http = require('http');
+const sample_rate = 256;
 const kernel= [ -0.00611779802346922, -0.00625504233834900, -0.00639124756152272,
 			-0.00652632292468917, -0.00666017805064469, -0.00679272303124695, -0.00692386850516743,
 			-0.00705352573535570, -0.00718160668613947, -0.00730802409988414, -0.00743269157313628,
@@ -261,14 +263,17 @@ console.log('timeout');
         			d3.push(trans);
 			}
 			var raw:any=[];
+			var up1 = Array.from(resample(d1,d1.length,sample_rate),x=>x*1000);
+                        var up2 = Array.from(resample(d2,d2.length,sample_rate),x=>x*1000);
+                        var up3 = Array.from(resample(d3,d3.length,sample_rate),x=>x*1000);
         		raw={
         			Data_Point_Amount: 4,
         			Date:kkk.content.SenHub.srcTs,
         			Ecg_time:t,
         			Current_time:Date.now(),
-        			Diff_1:d1,
-        			Diff_2:d2,
-        			Diff_3:d3,
+        			Diff_1:up1,
+        			Diff_2:up2,
+        			Diff_3:up3,
         			Patient_CodeID:patient_code,
         			//RPN_Id:param.ECG_3leadInfoViewModels_uploads[j].RPN_Id,
         			//Result:param.ECG_3leadInfoViewModels_uploads[j].Result,
