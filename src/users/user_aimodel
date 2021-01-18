@@ -98,9 +98,8 @@ export class UserService {
 	
   }
 
-  async updateModel(patient_code, model, status): Promise<User> {
+  async updateModel(patient_code, model, status) {
     status=parseInt(status);
-	  user.Status_time=user.Status_time*1;
     const Isuser = await this.userRepository.findOne({ userId: patient_code });
     if (!Isuser) {
 
