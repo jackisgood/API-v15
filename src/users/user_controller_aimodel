@@ -47,7 +47,7 @@ export class UserController {
   @Put('users/model/:patient_code/:model/:status')
   userUpdateModel(
     		     @Param('patient_code') patient_code:string,
-             @Param('model') status:string,
+             @Param('model') model:string,
              @Param('status') status:string,
 		     )  {
 	console.log("change "+patient_code+" "+model+" to "+status);
