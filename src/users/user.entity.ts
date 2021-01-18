@@ -30,4 +30,19 @@ export class User {
 
     @Column({ type:'double' })
     get_12leads:number;
+  
+    @Column({ type:'int' })
+    Denoise_ON:number;
+
+    @Column({ type:'int' })
+    AF_ON:number;
+
+    @Column({ type:'int' })
+    MI_ON:number;
+
+    @Column({ type:'int' })
+    AF_detect:number;
+
+    @Column({ type:'int' })
+    is_detected_mi:number;
 }
