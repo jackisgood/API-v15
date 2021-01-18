@@ -105,7 +105,7 @@ export class UserService {
 
       return "NO user";
     }
-	await this.userRepository.update({userId:patient_code} , {model:status});
+	await this.userRepository.update({userId:patient_code} , {[model]:status});
   return model+" model change";
   }
 
