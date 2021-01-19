@@ -25,6 +25,9 @@ export class User {
     @Column({ type:'double' })
     lasttime_Ts:number;
 
+    @Column({ type:'double' })
+    lasttime_3denoised:number;
+  
     @Column({ type:'int' })
     visible:number;
 
