@@ -49,6 +49,20 @@ export class Ecgdata12Controller {
         return this.ecgdata12Service.findEcgdata12ByUser({ id, from, to, limit });
     }
 
+    @Get('users/:userId/denoise_ecgdata12')
+    @ApiQuery({ name: 'to', required: false })
+    @ApiQuery({ name: 'limit', required: false })
+    async findUserDenoiseEcgdata(
+        @Param('userId') userId: string,
+        @Query('from') from: string,
+        @Query('to') to?: string,
+        @Query('limit') limit?: number,
+    ){
+        //if (!from) throw new HttpException('from is required', HttpStatus.BAD_REQUEST);
+	var id =userId;		
+        return this.ecgdata12Service.findDenoiseEcgdata12ByUser({ id, from, to, limit });
+    }
+
     @Get('users/:userId/ecgdata12/all')
     async findUserEcgdata12_all(
         @Param('userId') userId: string,
