@@ -263,9 +263,9 @@ console.log('timeout');
         			d3.push(trans);
 			}
 			var raw:any=[];
-			var up1 = Array.from(resample(d1,d1.length,sample_rate));
-                        var up2 = Array.from(resample(d2,d2.length,sample_rate));
-                        var up3 = Array.from(resample(d3,d3.length,sample_rate));
+			var up1 = Array.from(resample(d1,d1.length,sample_rate,{method:"linear"}));
+                        var up2 = Array.from(resample(d2,d2.length,sample_rate,{mehtod:"linear"}));
+                        var up3 = Array.from(resample(d3,d3.length,sample_rate,{mehtod:"linear"}));
         		raw={
         			Data_Point_Amount: 4,
         			Date:kkk.content.SenHub.srcTs,
